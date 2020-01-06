@@ -6,11 +6,19 @@ export default buildSchema(`
         id: ID
         name: String
     }
+    type Transaction {
+        id: ID
+    }
+    type Link {
+        id: ID
+    }
     type Query {
-        user(id: ID!): User
-        users: [User]
+        statement(): [Transaction]
     }
     type Mutation {
-        createUser(name: String!, repo: String!, age: Int!): User
+        deposit(): Transaction
+    }
+    type Subscription {
+       newLink: Link
     }
 `);

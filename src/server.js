@@ -2,7 +2,8 @@ import express from 'express';
 import expressGraphql from 'express-graphql';
 import schema from './graphql/schema/schema';
 import resolvers from './graphql/resolvers'
-
+import { PubSub } from 'graphql-subscriptions';
+const pubsub = new PubSub()
 const app = express();
 
 app.set('port', (process.env.PORT || 3001));
@@ -12,7 +13,10 @@ app.use(
     expressGraphql({
       schema,
       rootValue: resolvers,
-      graphiql: true
+      graphiql: true,
+      context:{
+        pubsub
+      }
     })
   );
 

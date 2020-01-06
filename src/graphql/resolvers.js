@@ -1,26 +1,8 @@
+import Query from './resolvers/query'
+import Mutation from './resolvers/mutation'
+import Subscription from './resolvers/subscription'
 
-class Resolvers {
-    getResolvers() {
-        return {
-            user({ id }) {
-                return {
-                    id
-                };
-              },
-              users() {
-                return {
-
-                };
-              },
-              createUser({ name, repo, age }) {
-                return {
-                    id: '0',
-                    name,
-                    repo,
-                    age
-                  };
-              }
-        };
-    }
-}
-export default new Resolvers().getResolvers()
+export default {
+    "Query": Query,
+    "Mutation": Mutation,
+    "Subscription": Subscription };
