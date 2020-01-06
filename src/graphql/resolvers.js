@@ -23,4 +23,4 @@ class Resolvers {
         };
     }
 }
-export default Resolvers().getResolvers()
+export default new Resolvers().getResolvers()
